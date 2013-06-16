@@ -1,20 +1,17 @@
 using UnityEngine;
 using System.Collections;
 
-public class Battlefield : MonoBehaviour {
+public class Battlefield {
 	
 	GameObject background;
+	GameObject[] playerParty;
+	GameObject[] enemies;
 	
-	Actor[] goodGuys;
-	Actor[] badGuys;
-
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
+	public Battlefield (GameObject friends, GameObject foes)
+	{
+		playerParty = new GameObject[1];
+		enemies = new GameObject[1];
+		playerParty [0] = friends;
+		enemies[0] = foes;
 	}
 }

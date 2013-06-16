@@ -33,3 +33,12 @@ Base actions:
 
 "Defend" is not the traditional "Oh well I'm just gonna parry and take damage".  It does that, but it also has a chance of counter-attacking anyone who attacks or moves near you...  It's overwatch, it presents you with an attack of opportunity.  Or at least a CHANCE of an attack of opportunity, since if it were certain there'd be no reason to ever not use it.  (Also it only works with basic attacks, can't attack-op with special powers.)
 
+
+
+I think that I will start by defining an arena, with background, edges, and some sort of terrain map (movable vs. immovable areas).
+
+Then I will define characters to go in it, with teams, positions, basic attacks, hit points, and death.
+
+Then I will have to have some sort of input.
+
+Then I will make timing work properly.
