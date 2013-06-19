@@ -45,6 +45,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Code\ActorController.cs" />
+     <Compile Include="Assets\Code\BackgroundMongler.cs" />
      <Compile Include="Assets\Code\Battlefield.cs" />
      <Compile Include="Assets\Code\Main.cs" />
   </ItemGroup>

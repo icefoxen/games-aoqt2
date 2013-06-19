@@ -9,6 +9,7 @@ public class ActorController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		transform.Translate(0, 0, -1);
 		Debug.Log ("Actor created.");
 	}
 	
@@ -16,6 +17,7 @@ public class ActorController : MonoBehaviour {
 	void FixedUpdate ()
 	{
 		this.transform.Translate (0.05f, 0f, 0f);
+		//Debug.Log (this.transform.position.x);
 	}
 	
 	void takeDamage (int damage)
