@@ -58,7 +58,8 @@ public class Actor : MonoBehaviour {
 
 
 
-
+// Now, should these be inherited from Actor, or should they contain Actors
+// which update stuff and maybe take a callback?
 public class Player : Actor {
 	const int PLAYERSPEED = 300;
 	const int ARROWSPEED = 300;
@@ -72,3 +73,11 @@ public class Player : Actor {
 	const int SWORDDURATION = (SWORDREFIRE * 2) / 3;
 }
 
+
+public class Mob : Actor {
+	
+}
+
+public class Powerup : Actor {
+	
+}
