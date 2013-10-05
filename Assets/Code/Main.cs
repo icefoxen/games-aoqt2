@@ -20,6 +20,7 @@ public class Main : MonoBehaviour {
 		var foe = (GameObject)Instantiate (prefabActor);
 		field = new Battlefield (friend, foe);
 		
+		
 		/*
 		int backgroundSize = 50;
 		int backgroundArea = backgroundSize * backgroundSize;
