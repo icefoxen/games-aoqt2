@@ -8,7 +8,7 @@ public class Main : MonoBehaviour {
 	public GameObject prefabActor;
 	public GameObject prefabSprite;
 	
-	Battlefield field;
+	//Battlefield field;
 	
 	GameObject[] background;
 	
@@ -16,9 +16,9 @@ public class Main : MonoBehaviour {
 	void Start ()
 	{
 		Debug.Log ("Hello World once!!");
-		var friend = (GameObject)Instantiate (prefabActor);
-		var foe = (GameObject)Instantiate (prefabActor);
-		field = new Battlefield (friend, foe);
+		//var friend = (GameObject)Instantiate (prefabActor);
+		//var foe = (GameObject)Instantiate (prefabActor);
+		//field = new Battlefield (friend, foe);
 		
 		
 		/*
