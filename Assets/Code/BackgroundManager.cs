@@ -10,8 +10,8 @@ public class BackgroundManager : MonoBehaviour {
 		var mf = GetComponent<MeshFilter> ();
 		mf.mesh = w.GetCurrentZone().mesh;
 		
-		var mr = GetComponent<MeshRenderer>();
-		mr.material.mainTexture = w.backgroundAtlas.tex;
+		//var mr = GetComponent<MeshRenderer>();
+		//mr.material.mainTexture = w.backgroundAtlas.tex;
 		
 		//Debug.Log ("Geometry made.");
 		

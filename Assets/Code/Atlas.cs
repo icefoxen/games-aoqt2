@@ -2,25 +2,17 @@
 using System.Collections;
 
 public class Atlas {
-
-	public Texture tex;
 	// number of tiles in the sprite atlas
-	public int width;
-	public int height;
+	public const int width = 16;
+	public const int height = 16;
 	
-	public Atlas(Texture t, int w, int h) {
-		tex = t;
-		width = w;
-		height = h;
-	}
-	
-	public Vector2 GetSpriteSize() {
+	public static Vector2 GetSpriteSize() {
 		var w = 1.0f / width;
 		var h = 1.0f / height;
 		return new Vector2(w, h);
 	}
 	
-	public Vector4 GetSpriteCoords(int index) {
+	public static Vector4 GetSpriteCoords(int index) {
 		if(index < 0 || index >= width*height) {
 			Debug.LogError("Invalid sprite coordinates!");
 		}

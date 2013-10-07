@@ -25,8 +25,10 @@ public class Zone {
 	public void SetupTiles ()
 	{
 		for(int i = 0; i < WIDTH; i++) { 
-			var r = (int) (Random.value * TILEX);
-			tiles[i,0] = r;
+			for(int j = 0; j < HEIGHT; j++) {
+				var r = (int) (Random.value * Atlas.width * Atlas.height);
+				tiles[i,j] = r;
+			}
 		}
 	}
 	/*
@@ -97,12 +99,28 @@ public class Zone {
 		mesh.normals = normals;
 		
 		var uv = new Vector2[numUvs];
+		var quad = 0;
+		for(int i = 0; i < WIDTH; i++) {
+			for(int j = 0; j < HEIGHT; j++) {
+				var rect = Atlas.GetSpriteCoords(tiles[i,j]);
+				var width = rect.z;
+				var height = rect.w;
+				uv[quad + 0] = new Vector2(rect.x, rect.y);
+				uv[quad + 1] = new Vector2(rect.x + width, rect.y);
+				uv[quad + 2] = new Vector2(rect.x, rect.y + height);
+				uv[quad + 3] = new Vector2(rect.x + width, rect.y + height);
+				quad += 4;
+			}
+		}
+		/*
 		for (int i = 0; i < numUvs; i += 4) {
 			uv [i + 0] = new Vector2 (0, 0);
 			uv [i + 1] = new Vector2 (0.5f, 0);
 			uv [i + 2] = new Vector2 (0, 0.5f);
 			uv [i + 3] = new Vector2 (0.5f, 0.5f);
+			
 		}
+		*/
 		mesh.uv = uv;
 	}
 	
@@ -115,13 +133,10 @@ public class World {
 	public int zoneX;
 	public int zoneY;
 	
-	public Atlas backgroundAtlas;
-	
 	public Zone[,] zones = new Zone[WIDTH,HEIGHT];
 	
-	public World (Texture bgAtlas)
+	public World ()
 	{
-		backgroundAtlas = new Atlas(bgAtlas, 2, 2);
 		Debug.Log ("Making world");
 		for (int i = 0; i < WIDTH; i++) {
 			for (int j = 0; j < HEIGHT; j++) {

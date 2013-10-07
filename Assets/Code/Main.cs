@@ -6,14 +6,7 @@ using System.Text;
 public class Main : MonoBehaviour {
 
 	public BackgroundManager background;
-	//public GameObject prefabActor;
-	
-	public Texture backgroundAtlas;
-	public Texture playerAtlas;
-	public Texture mobAtlas;
-	public Texture weaponAtlas;
-	public Texture powerupAtlas;
-	
+	//public GameObject prefabActor;	
 	World w;
 	
 	// Use this for initialization
@@ -23,7 +16,7 @@ public class Main : MonoBehaviour {
 		// created during a constructor...?
 		// So we have to init the world here, because it makes a bunch of
 		// zones which all contain background meshes and such...
-		w = new World (backgroundAtlas);
+		w = new World ();
 		background.SetBackground (w);
 	
 	}
