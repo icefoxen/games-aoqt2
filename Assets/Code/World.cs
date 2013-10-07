@@ -24,12 +24,29 @@ public class Zone {
 	
 	public void SetupTiles ()
 	{
-		for( int i = 0; i < WIDTH; i++)
-		{
+		for(int i = 0; i < WIDTH; i++) { 
 			var r = (int) (Random.value * TILEX);
 			tiles[i,0] = r;
 		}
 	}
+	/*
+	public Vector2 TileToOffset(int i) {
+		const int TILESPERROW = 2;
+		const int TILESPERCOLUMN = 2;
+		
+		const float spriteW = 1.0f / TILESPERROW;
+		const float spriteH = 1.0f / TILESPERCOLUMN;
+		
+		var tileXOffset = i % TILESPERROW;
+		var tileYOffset = i / TILESPERROW;
+		return new Vector2(tileXOffset, tileYOffset);
+		
+		var tileX = 0;
+		var tileY = 0;
+		
+	}
+	*/
+	
 	
 	public void InitMesh ()
 	{
@@ -82,9 +99,9 @@ public class Zone {
 		var uv = new Vector2[numUvs];
 		for (int i = 0; i < numUvs; i += 4) {
 			uv [i + 0] = new Vector2 (0, 0);
-			uv [i + 1] = new Vector2 (1, 0);
-			uv [i + 2] = new Vector2 (0, 1);
-			uv [i + 3] = new Vector2 (1, 1);
+			uv [i + 1] = new Vector2 (0.5f, 0);
+			uv [i + 2] = new Vector2 (0, 0.5f);
+			uv [i + 3] = new Vector2 (0.5f, 0.5f);
 		}
 		mesh.uv = uv;
 	}

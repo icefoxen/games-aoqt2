@@ -20,7 +20,7 @@ public class BackgroundManager : MonoBehaviour {
 	{
 		transform.localRotation = Quaternion.identity;
 		transform.Rotate (new Vector3 (0, 0, 1), 180);
-		transform.localScale = new Vector3 (10, 10, 10);
+		transform.localScale = new Vector3 (1, 1, 1);
 		
 		
 		/*

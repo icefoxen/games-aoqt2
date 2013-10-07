@@ -8,6 +8,12 @@ public class Main : MonoBehaviour {
 	public BackgroundManager background;
 	//public GameObject prefabActor;
 	
+	public Texture backgroundAtlas;
+	public Texture playerAtlas;
+	public Texture mobAtlas;
+	public Texture weaponAtlas;
+	public Texture powerupAtlas;
+	
 	World w;
 	
 	// Use this for initialization

@@ -45,6 +45,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Code\Actor.cs" />
+     <Compile Include="Assets\Code\Atlas.cs" />
      <Compile Include="Assets\Code\BackgroundManager.cs" />
      <Compile Include="Assets\Code\Main.cs" />
      <Compile Include="Assets\Code\World.cs" />
