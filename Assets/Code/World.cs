@@ -11,10 +11,24 @@ public class Zone {
 	public Mob[] mobs = new Mob[NUMMOBS];
 	public Powerup[] powerups = new Powerup[NUMPOWERUPS];
 	
+	
+	public const int TILEX = 4;
+	
 	public Mesh mesh;
-	public Zone() {
+	public Zone ()
+	{
 		//Debug.Log ("Making zone");
+		SetupTiles();
 		InitMesh ();
+	}
+	
+	public void SetupTiles ()
+	{
+		for( int i = 0; i < WIDTH; i++)
+		{
+			var r = (int) (Random.value * TILEX);
+			tiles[i,0] = r;
+		}
 	}
 	
 	public void InitMesh ()
@@ -29,14 +43,16 @@ public class Zone {
 		var numUvs = numSquares * 4;
 		
 		var verts = new Vector3[numVerts];
+		var vert = 0;
 		for (int i = 0; i < WIDTH; i++) {
 			for (int j = 0; j < HEIGHT; j++) {
-				var vert = j * WIDTH + i;
+				//var vert = j * WIDTH + i;
 				// All tiles have a size of 1
 				verts [vert + 0] = new Vector3 (i, j, 0);
 				verts [vert + 1] = new Vector3 ((i + 1), j, 0);
 				verts [vert + 2] = new Vector3 (i, (j + 1), 0);
 				verts [vert + 3] = new Vector3 ((i + 1), (j + 1), 0);
+				vert += 4;
 			}
 		}
 		mesh.vertices = verts;
@@ -52,7 +68,6 @@ public class Zone {
 			tris [tri + 4] = vertOffset + 3;
 			tris [tri + 5] = vertOffset + 1;
 		}
-		//var tris = new int[6 * numSquares] { 0, 2, 1, 2, 3, 1};
 		mesh.triangles = tris;
 		
 		var normals = new Vector3[numNormals];
