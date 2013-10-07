@@ -115,10 +115,13 @@ public class World {
 	public int zoneX;
 	public int zoneY;
 	
+	public Atlas backgroundAtlas;
+	
 	public Zone[,] zones = new Zone[WIDTH,HEIGHT];
 	
-	public World ()
+	public World (Texture bgAtlas)
 	{
+		backgroundAtlas = new Atlas(bgAtlas, 2, 2);
 		Debug.Log ("Making world");
 		for (int i = 0; i < WIDTH; i++) {
 			for (int j = 0; j < HEIGHT; j++) {

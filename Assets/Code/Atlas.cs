@@ -31,5 +31,4 @@ public class Atlas {
 		
 		return new Vector4(xoffset, yoffset, size.x, size.y);
 	}
-
 }

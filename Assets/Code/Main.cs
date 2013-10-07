@@ -23,8 +23,8 @@ public class Main : MonoBehaviour {
 		// created during a constructor...?
 		// So we have to init the world here, because it makes a bunch of
 		// zones which all contain background meshes and such...
-		w = new World ();
-		background.SetBackground (w.GetCurrentZone ());
+		w = new World (backgroundAtlas);
+		background.SetBackground (w);
 	
 	}
 	
@@ -32,7 +32,6 @@ public class Main : MonoBehaviour {
 	void FixedUpdate ()
 	{
 		//testsprite.transform.Translate (0.05f, 0f, 0f);
-		
 	}
 	
 	void Update()

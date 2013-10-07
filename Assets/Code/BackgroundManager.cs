@@ -5,11 +5,13 @@ using System.Collections;
 public class BackgroundManager : MonoBehaviour {
 	
 	// For now this just makes a flat billboard
-	public void SetBackground (Zone z)
+	public void SetBackground (World w)
 	{
 		var mf = GetComponent<MeshFilter> ();
-		//var mesh = new Mesh ();
-		mf.mesh = z.mesh;
+		mf.mesh = w.GetCurrentZone().mesh;
+		
+		var mr = GetComponent<MeshRenderer>();
+		mr.material.mainTexture = w.backgroundAtlas.tex;
 		
 		//Debug.Log ("Geometry made.");
 		
@@ -18,9 +20,9 @@ public class BackgroundManager : MonoBehaviour {
 	// Use this for initialization
 	void Start ()
 	{
-		transform.localRotation = Quaternion.identity;
-		transform.Rotate (new Vector3 (0, 0, 1), 180);
-		transform.localScale = new Vector3 (1, 1, 1);
+		//transform.localRotation = Quaternion.identity;
+		//transform.Rotate (new Vector3 (0, 0, 1), 180);
+		//transform.localScale = new Vector3 (1, 1, 1);
 		
 		
 		/*
