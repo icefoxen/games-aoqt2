@@ -6,14 +6,14 @@ public class Zone {
 	const int HEIGHT = 12;
 	const int NUMMOBS = 16;
 	const int NUMPOWERUPS = 16;
-	
-	public int[,] tiles = new int[WIDTH, HEIGHT];
+
+	public int[, ] tiles = new int[WIDTH, HEIGHT];
 	public Mob[] mobs = new Mob[NUMMOBS];
 	public Powerup[] powerups = new Powerup[NUMPOWERUPS];
-	
-	
+
+
 	public const int TILEX = 4;
-	
+
 	public Mesh mesh;
 	public Zone ()
 	{
@@ -21,16 +21,20 @@ public class Zone {
 		SetupTiles();
 		InitMesh ();
 	}
-	
+
+
+
 	public void SetupTiles ()
 	{
-		for(int i = 0; i < WIDTH; i++) { 
+		for(int i = 0; i < WIDTH; i++) {
 			for(int j = 0; j < HEIGHT; j++) {
 				var r = (int) (Random.value * Atlas.width * Atlas.height);
-				tiles[i,j] = r;
+				tiles[i, j] = r;
 			}
 		}
 	}
+
+
 	/*
 	public Vector2 TileToOffset(int i) {
 		const int TILESPERROW = 2;
@@ -48,19 +52,19 @@ public class Zone {
 		
 	}
 	*/
-	
-	
+
+
 	public void InitMesh ()
 	{
 		// ...why am I doing this the hard way, anyway?
 		mesh = new Mesh ();
-		
+
 		const int numSquares = WIDTH * HEIGHT;
 		var numVerts = numSquares * 4;
 		var numTris = numSquares * 6;
 		var numNormals = numSquares * 4;
 		var numUvs = numSquares * 4;
-		
+
 		var verts = new Vector3[numVerts];
 		var vert = 0;
 		for (int i = 0; i < WIDTH; i++) {
@@ -74,8 +78,10 @@ public class Zone {
 				vert += 4;
 			}
 		}
+
+
 		mesh.vertices = verts;
-		
+
 		var tris = new int[numTris];
 		for (int i = 0; i < numSquares; i++) {
 			var vertOffset = i * 4;
@@ -87,8 +93,10 @@ public class Zone {
 			tris [tri + 4] = vertOffset + 3;
 			tris [tri + 5] = vertOffset + 1;
 		}
+
+
 		mesh.triangles = tris;
-		
+
 		var normals = new Vector3[numNormals];
 		for (int i = 0; i < numNormals; i += 4) {
 			normals [i + 0] = -Vector3.forward;
@@ -96,13 +104,15 @@ public class Zone {
 			normals [i + 2] = -Vector3.forward;
 			normals [i + 3] = -Vector3.forward;
 		}
+
+
 		mesh.normals = normals;
-		
+
 		var uv = new Vector2[numUvs];
 		var quad = 0;
 		for(int i = 0; i < WIDTH; i++) {
 			for(int j = 0; j < HEIGHT; j++) {
-				var rect = Atlas.GetSpriteCoords(tiles[i,j]);
+				var rect = Atlas.GetSpriteCoords(tiles[i, j]);
 				var width = rect.z;
 				var height = rect.w;
 				uv[quad + 0] = new Vector2(rect.x, rect.y);
@@ -112,6 +122,8 @@ public class Zone {
 				quad += 4;
 			}
 		}
+
+
 		/*
 		for (int i = 0; i < numUvs; i += 4) {
 			uv [i + 0] = new Vector2 (0, 0);
@@ -123,8 +135,11 @@ public class Zone {
 		*/
 		mesh.uv = uv;
 	}
-	
 }
+
+
+
+
 
 public class World {
 	const int WIDTH = 10;
@@ -137,6 +152,7 @@ public class World {
 	
 	public World ()
 	{
+
 		Debug.Log ("Making world");
 		for (int i = 0; i < WIDTH; i++) {
 			for (int j = 0; j < HEIGHT; j++) {

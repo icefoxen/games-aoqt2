@@ -4,11 +4,7 @@ MonoImporter:
   serializedVersion: 2
   defaultReferences:
   - background: {instanceID: 0}
-  - backgroundAtlas: {fileID: 2800000, guid: 06c38e9a06886d64fa22b24ad04d08e7, type: 3}
-  - playerAtlas: {fileID: 2800000, guid: 172e9b0697418044cb8468c8af15e368, type: 3}
-  - mobAtlas: {instanceID: 0}
-  - weaponAtlas: {instanceID: 0}
-  - powerupAtlas: {instanceID: 0}
+  - prefabActor: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
