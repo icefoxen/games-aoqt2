@@ -3,11 +3,13 @@ using System.Collections;
 using System;
 using System.Text;
 
+
 public class Main : MonoBehaviour {
 
 	public BackgroundManager background;
-	//public GameObject prefabActor;	
+	public GameObject prefabActor;	
 	World w;
+	GameObject player;
 	
 	// Use this for initialization
 	void Start ()
@@ -18,7 +20,7 @@ public class Main : MonoBehaviour {
 		// zones which all contain background meshes and such...
 		w = new World ();
 		background.SetBackground (w);
-	
+		player = (GameObject) Instantiate(prefabActor);
 	}
 	
 	// Update is called once per frame
