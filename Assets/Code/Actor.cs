@@ -32,8 +32,11 @@ public class Actor : MonoBehaviour {
 	// Update is called once per frame
 	void FixedUpdate ()
 	{
-		this.transform.Translate (0.05f, 0f, 0f);
+		//this.transform.Translate (0.05f, 0f, 0f);
 		//Debug.Log (this.transform.position.x);
+		var x = Input.GetAxis("Horizontal");
+		var y = Input.GetAxis("Vertical");
+		this.transform.Translate(0.05f * x, 0.05f * y, 0f);
 	}
 	
 	/*

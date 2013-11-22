@@ -1,6 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+struct Rect {
+	public float x;
+	public float y;
+	public float w;
+	public float h;
+}
+
 public class Zone {
 	const int WIDTH = 16;
 	const int HEIGHT = 12;
@@ -12,7 +19,7 @@ public class Zone {
 	public Powerup[] powerups = new Powerup[NUMPOWERUPS];
 
 
-	public const int TILEX = 4;
+	//public const int TILEX = 4;
 
 	public Mesh mesh;
 	public Zone ()
@@ -22,6 +29,12 @@ public class Zone {
 		InitMesh ();
 	}
 
+	public Rect? IntersectingTile(GameObject g) 
+	{
+		return null;
+	}
+	
+	//public void CheckTerrainCollision(
 
 
 	public void SetupTiles ()
