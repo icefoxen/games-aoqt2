@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-struct Rect {
+public struct Rect {
 	public float x;
 	public float y;
 	public float w;
