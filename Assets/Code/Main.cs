@@ -6,9 +6,8 @@ using System.Text;
 
 public class Main : MonoBehaviour {
 
-	public BackgroundManager background;
-	public GameObject prefabActor;	
-	World w;
+	public GameObject prefabActor;
+	public World w;
 	GameObject player;
 	
 	// Use this for initialization
@@ -18,8 +17,7 @@ public class Main : MonoBehaviour {
 		// created during a constructor...?
 		// So we have to init the world here, because it makes a bunch of
 		// zones which all contain background meshes and such...
-		w = new World ();
-		background.SetBackground (w);
+		//background.SetBackground (w);
 		player = (GameObject) Instantiate(prefabActor);
 	}
 	
