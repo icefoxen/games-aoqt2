@@ -2,7 +2,9 @@ fileFormatVersion: 2
 guid: 0ded3a25efe478d4e92e5b6497cb7605
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - TerrainColliderPrefab: {fileID: 100000, guid: 224b3800cce5c5a44a6fc3c164a99481,
+      type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

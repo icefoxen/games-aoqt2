@@ -20,8 +20,6 @@ public class Actor : MonoBehaviour {
 	bool show;
 	
 	int hits;
-	
-	// XXX: Animation?
 
 	// Use this for initialization
 	void Start () {

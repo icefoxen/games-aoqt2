@@ -20,6 +20,7 @@ public class Atlas {
 		var size = GetSpriteSize();
 		var xoffset = (index % width) * size.x;
 		var yoffset = (index / width) * size.y;
+		Debug.Log (new Vector3(index, xoffset, yoffset));
 		
 		return new Vector4(xoffset, yoffset, size.x, size.y);
 	}

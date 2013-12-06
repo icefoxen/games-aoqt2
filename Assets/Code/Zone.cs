@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+using UnityEngine;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -14,7 +15,7 @@ public struct Rect {
 public class Zone : MonoBehaviour {
 
 	const int WIDTH = 16;
-	const int HEIGHT = 12;
+	const int HEIGHT = 16;
 	const int NUMMOBS = 16;
 	const int NUMPOWERUPS = 16;
 		
@@ -27,6 +28,7 @@ public class Zone : MonoBehaviour {
 	public Mob[] mobs = new Mob[NUMMOBS];
 	public Powerup[] powerups = new Powerup[NUMPOWERUPS];
 
+	public GameObject TerrainColliderPrefab;
 	public List<GameObject> colliders = new List<GameObject> ();
 		
 	//public const int TILEX = 4;
@@ -53,8 +55,8 @@ public class Zone : MonoBehaviour {
 				} else {
 					tiles[i, j] = 0;
 				}
-				tiles[i,j] = t;
-				t = (t + 1) % 256;
+				//tiles[i,j] = t;
+				//t = (t + 1) % 256;
 			}
 		}
 	}
@@ -75,7 +77,23 @@ public class Zone : MonoBehaviour {
 
 	public void SetupColliders() 
 	{
-		// For now we just create a collider for each tile that is 
+		// For now we just create a collider for each tile that is false for tileIsPassable()
+		// Later we will consider the map and merge small colliders into bigger ones, which
+		// can be done in a non-optimal-but-easy way just by checking and merging along one axis.
+		for (int i = 0; i < WIDTH; i++) {
+			for(int j = 0; j < HEIGHT; j++) {
+				if(!tileIsPassable(i,j)) {
+					var c = (GameObject) Instantiate (TerrainColliderPrefab);
+					colliders.Add(c);
+					// the 0.5 is to nudge things a little so they're centered compared to the background
+					var cx = i + this.transform.position.x + 0.5f;
+					var cy = j + this.transform.position.y + 0.5f;
+					c.transform.Translate (new Vector3(cx, cy, 0));
+					c.transform.parent = this.transform;
+				}
+			}
+		}
+		//Debug.Log (String.Format("{0}, {1}, {2}", WIDTH, HEIGHT, colliders.Count));
 	}
 
 		
@@ -164,6 +182,16 @@ public class Zone : MonoBehaviour {
 				uv[quad + 1] = new Vector2(rect.x + width, rect.y);
 				uv[quad + 2] = new Vector2(rect.x, rect.y + height);
 				uv[quad + 3] = new Vector2(rect.x + width, rect.y + height);
+				/*
+				uv[quad + 0] = new Vector2(rect.x, rect.y);
+				uv[quad + 1] = new Vector2(rect.x + width, rect.y);
+				uv[quad + 2] = new Vector2(rect.x, rect.y + height);
+				uv[quad + 3] = new Vector2(rect.x + width, rect.y + height);
+				*/
+				//Debug.Log (String.Format("coords: {0}, {0}, {0}, {0}", rect.x, rect.y, rect.z, rect.w));
+				//Debug.Log (String.Format("coordseses: {0}, {0}, {0}, {0}", 
+				//                         uv[quad + 0].ToString ("F4"), uv[quad + 1].ToString ("F4"), 
+				//                         uv[quad + 2].ToString ("F4"), uv[quad + 3].ToString ("F4")));
 				quad += 4;
 			}
 		}
@@ -187,6 +215,7 @@ public class Zone : MonoBehaviour {
 	void Start () {
 		//Debug.Log ("Making zone");
 		SetupTiles();
+		SetupColliders ();
 		InitMesh ();
 	}
 	
