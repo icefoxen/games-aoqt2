@@ -88,6 +88,7 @@ public class Zone : MonoBehaviour {
 					// the 0.5 is to nudge things a little so they're centered compared to the background
 					var cx = i + this.transform.position.x + 0.5f;
 					var cy = j + this.transform.position.y + 0.5f;
+					//var cl = c.GetComponent<BoxCollider2D>();
 					c.transform.Translate (new Vector3(cx, cy, 0));
 					c.transform.parent = this.transform;
 				}
