@@ -183,6 +183,10 @@ public class Zone : MonoBehaviour {
 				uv[quad + 1] = new Vector2(rect.x + width, rect.y);
 				uv[quad + 2] = new Vector2(rect.x, rect.y + height);
 				uv[quad + 3] = new Vector2(rect.x + width, rect.y + height);
+				uv[quad + 0] = new Vector2(0.0f, 0.0f);
+				uv[quad + 1] = new Vector2(1.0f, 0.5f);
+				uv[quad + 2] = new Vector2(0.5f, 1.0f);
+				uv[quad + 3] = new Vector2(1.0f, 1.0f);
 				/*
 				uv[quad + 0] = new Vector2(rect.x, rect.y);
 				uv[quad + 1] = new Vector2(rect.x + width, rect.y);

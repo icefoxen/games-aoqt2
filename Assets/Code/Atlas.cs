@@ -21,7 +21,8 @@ public class Atlas {
 		var xoffset = (index % width) * size.x;
 		var yoffset = (index / width) * size.y;
 		Debug.Log (new Vector3(index, xoffset, yoffset));
-		
+
+		// x, y, z, w
 		return new Vector4(xoffset, yoffset, size.x, size.y);
 	}
 }
